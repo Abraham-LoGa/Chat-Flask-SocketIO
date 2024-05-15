@@ -6,19 +6,9 @@ from board.nlg import bp as nlg
 import json
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'secret!'
+#app.config['SECRET_KEY'] = 'secret!'
 socketio.init_app(app)
 app.register_blueprint(nlg)
-# @app.route('/')
-# def index():
-#     return 'Hola'
-
-# @socketio.on('message')
-# def handle_message(message2):
-#     print(message2)
-#     #emit('my response', {'data': 'got it!'})
-
-
-
 if __name__ == '__main__':
-    socketio.run(app, debug=True)
+    socketio.run(app, host='0.0.0.0', port=5060, debug= True)
+    #app.run('0.0.0.0', port=5020, debug=True)
